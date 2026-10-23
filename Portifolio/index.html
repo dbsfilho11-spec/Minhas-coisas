@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css.css">
+    <title>Meu portifolio</title>
+</head>
+<body>
+    <main class="telaInicial" aria-label="Tela inicial de Ecos do Abismo">
+        <div class="arte" aria-hidden="true">
+            <img src="HK_header.webp" alt="">
+        </div>
+        <div class="sombraImagem" aria-hidden="true"></div>
+        <div class="particulasAmbiente" aria-hidden="true"></div>
+
+        <section class="banner" id="inicio">
+            <p class="legenda"><span></span> Bem-vindo<span></span></p>
+            <h1>BEM-VINDO<br><small>AO MEU</small><br>PORTFÓLIO</h1>
+            <p class="saudacao" id="saudacao" aria-live="polite"></p>
+            <p class="tagline"></p>
+            <div class="regraTitulo"><i></i><span>✧</span><i></i></div>
+
+            <nav class="menuPrincipal" aria-label="Menu principal">
+                <button class="itemMenu selecionado" type="button" data-acao="iniciar"><span class="marcaMenu" aria-hidden="true">›</span> Iniciar o jogo</button>
+                <button class="itemMenu" type="button" data-acao="opcoes"><span class="marcaMenu" aria-hidden="true">›</span> Opções</button>
+                <button class="itemMenu" type="button" data-acao="conquistas"><span class="marcaMenu" aria-hidden="true">›</span> Conquistas</button>
+            </nav>
+            <p class="mensagemMenu" aria-live="polite">Use as setas para navegar · Enter para selecionar</p>
+        </section>
+
+        <footer class="barraInferior">
+            <span>VERSÃO CONCEITUAL <b>·</b> 1.0</span>
+            <span class="centroInferior"><i></i> SOB AS RUÍNAS, ALGO AINDA SONHA <i></i></span>
+            <span>ECOS DO ABISMO <b>✧</b> <span id="anoAtual"></span></span>
+        </footer>
+        <div class="vinheta" aria-hidden="true"></div>
+    </main>
+
+    <div class="modalConquistas" id="modalConquistas" aria-hidden="true">
+        <div class="caixaConquistas" role="dialog" aria-modal="true" aria-labelledby="tituloConquistas">
+            <button class="fecharConquistas" type="button" aria-label="Fechar conquistas">×</button>
+            <p class="tagConquistas">Conquistas</p>
+            <h2 id="tituloConquistas">Suas conquistas</h2>
+
+            <div class="listaConquistas">
+                <article class="itemConquista">
+                    <div class="imagemConquista" aria-label="Imagem da conquista">
+                        <span>IMG</span>
+                    </div>
+                    <div class="textoConquista">
+                        <h3>Pet shop</h3>
+                        <p>Um dos meus primeiros projetos e que eu tenho muito orgulho</p>
+                    </div>
+                </article>
+
+                <article class="itemConquista">
+                    <div class="imagemConquista" aria-label="Imagem da conquista">
+                        <span>IMG</span>
+                    </div>
+                    <div class="textoConquista">
+                        <h3>Loja de Aura</h3>
+                        <p>Meu melhor site feito no figma e com toda certeza mais conhecido.</p>
+                    </div>
+                </article>
+
+                <article class="itemConquista">
+                    <div class="imagemConquista" aria-label="Imagem da conquista">
+                        <span>IMG</span>
+                    </div>
+                    <div class="textoConquista">
+                        <h3>Cinema</h3>
+                        <p>Meu melhor e mais atual site demonstrando meu progresso</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pag2.css">
+    <title>Ecos do Abismo | Área de jogo</title>
+</head>
+<body>
+    <main class="shellPagina" id="areaJogo" aria-label="Área de jogo">
+        <div class="brilhoCeu" aria-hidden="true"></div>
+        <div class="lua" aria-hidden="true"></div>
+        <div class="estrelas" aria-hidden="true"></div>
+
+        <header class="barraSuperior">
+            <a class="marca" href="index.html">ECOS <span>·</span></a>
+            <div class="botoesCabecalho">
+                <span class="capitulo">CAPÍTULO II</span>
+                <button class="botaoTema" id="botaoTema" type="button" aria-label="Alternar modo claro e escuro">
+                    <span class="iconeTema" aria-hidden="true">☀️</span>
+                    <span class="textoTema">Claro</span>
+                </button>
+            </div>
+        </header>
+
+        <section class="areaJogo" aria-label="Área do jogo">
+            <div class="quadroJogo">
+                <button class="alternarMenu" type="button" aria-label="Abrir menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <nav class="menuLateral" id="menuLateral" aria-label="Menu do jogo" aria-hidden="true">
+                    <button class="linkMenu" type="button" data-painel="inventario">Sobre mim</button>
+                    <button class="linkMenu" type="button" data-painel="mapa">Habilidades</button>
+                    <button class="linkMenu" type="button" data-painel="diario">Contatos</button>
+                    <button class="linkMenu" type="button" data-painel="opcoes">Voltar</button>
+                </nav>
+
+                <div class="conteudoJogo">
+                    <p class="rotuloMini">ÁREA DE JOGO</p>
+                    <p class="saudacao" id="saudacao">Boa tarde, aventureiro.</p>
+                    <h2>O abismo te espera</h2>
+                    <p>Bem-vindo ao meu cantinho digital. Explore as seções, conheça meu trabalho e fique à vontade para entrar em contato.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="paisagem" aria-hidden="true">
+            <div class="cristaDistante"></div>
+            <div class="solo"></div>
+            <div class="ruinas ruinasEsquerda"><i></i><i></i><i></i></div>
+            <div class="ruinas ruinasDireita"><i></i><i></i><i></i></div>
+            <div class="viajante"></div>
+        </div>
+    </main>
+
+    <div class="sobreposicaoPainel" id="sobreposicaoPainel" aria-hidden="true">
+        <div class="caixaPainel" role="dialog" aria-modal="true" aria-labelledby="tituloPainel">
+            <button class="fecharPainel" type="button" aria-label="Fechar">×</button>
+
+            <div class="conteudoPainel ativo" data-painel-conteudo="inventario">
+                <p class="tagPainel">SEÇÃO</p>
+                <h1>Sobre mim</h1>
+                <p>Sou alguem que não se contenta com algo sem resposta concreta e busco resolver as coisas usando logica</p>
+            </div>
+
+            <div class="conteudoPainel" data-painel-conteudo="mapa">
+                <p class="tagPainel">SEÇÃO</p>
+                <h1>Habilidades</h1>
+                <p>Atenção, objetivo, inteligente, calmo e proativo</p>
+            </div>
+
+            <div class="conteudoPainel" data-painel-conteudo="diario">
+                <p class="tagPainel">SEÇÃO</p>
+                <h1>Contatos</h1>
+                <form class="formularioContato" id="formularioContato" novalidate>
+                    <div class="campoFormulario">
+                        <label for="nomeContato">Nome</label>
+                        <input id="nomeContato" name="nome" type="text" placeholder="Seu nome" required>
+                        <small class="mensagemErro" data-erro="nome"></small>
+                    </div>
+
+                    <div class="campoFormulario">
+                        <label for="emailContato">E-mail</label>
+                        <input id="emailContato" name="email" type="email" placeholder="seuemail@exemplo.com" required>
+                        <small class="mensagemErro" data-erro="email"></small>
+                    </div>
+
+                    <div class="campoFormulario">
+                        <label for="mensagemContato">Mensagem</label>
+                        <textarea id="mensagemContato" name="mensagem" rows="5" placeholder="Escreva sua mensagem aqui..." required></textarea>
+                        <small class="mensagemErro" data-erro="mensagem"></small>
+                    </div>
+
+                    <button class="botaoEnviarFormulario" type="submit">Enviar mensagem</button>
+                    <p class="mensagemSucesso" id="mensagemSucesso" aria-live="polite"></p>
+                </form>
+            </div>
+
+            <div class="conteudoPainel" data-painel-conteudo="opcoes">
+                <p class="tagPainel">SEÇÃO</p>
+                <h1>Voltar</h1>
+                <button class="botaoVoltarInicio" type="button" onclick="window.location.href='index.html'">Voltar para a página inicial</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="gameMenu.js"></script>
+</body>
+</html>
