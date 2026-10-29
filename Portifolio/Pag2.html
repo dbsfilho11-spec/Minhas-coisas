@@ -63,46 +63,64 @@
             <div class="conteudoPainel ativo" data-painel-conteudo="inventario">
                 <p class="tagPainel">SEÇÃO</p>
                 <h1>Sobre mim</h1>
-                <p>Sou alguem que não se contenta com algo sem resposta concreta e busco resolver as coisas usando logica</p>
+                <div class="sobreMimLayout">
+                    <div class="fotoPerfilWrapper">
+                        <div class="fotoPerfilFrame">
+                            <img src="WIN_20261029_17_02_39_Pro.jpg" alt="Foto de perfil do autor">
+                        </div>
+                    </div>
+
+                    <div class="textoSobreMim">
+                        <p>Sou alguém que não se contenta com algo sem resposta concreta e busco resolver as coisas usando lógica.</p>
+
+                        <div class="blocoSobreMim">
+                            <h2>Coisas que eu gosto</h2>
+
+                            <div class="listaSobreMim">
+                                <div class="grupoLista">
+                                    <h3>Animes</h3>
+                                    <p>Umamusume, The Eminence in Shadow e Futabu!</p>
+                                </div>
+
+                                <div class="grupoLista">
+                                    <h3>Jogos</h3>
+                                    <p>Terraria, Among Us, Hollow Knight, Silksong e Subnautica.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="conteudoPainel" data-painel-conteudo="mapa">
                 <p class="tagPainel">SEÇÃO</p>
                 <h1>Habilidades</h1>
-                <p>Atenção, objetivo, inteligente, calmo e proativo</p>
+                <p>Atenção, objetivo, inteligente, calmo e proativo, Tecnico em TI/Programação</p>
             </div>
 
             <div class="conteudoPainel" data-painel-conteudo="diario">
                 <p class="tagPainel">SEÇÃO</p>
                 <h1>Contatos</h1>
-                <form class="formularioContato" id="formularioContato" novalidate>
-                    <div class="campoFormulario">
-                        <label for="nomeContato">Nome</label>
-                        <input id="nomeContato" name="nome" type="text" placeholder="Seu nome" required>
-                        <small class="mensagemErro" data-erro="nome"></small>
-                    </div>
-
-                    <div class="campoFormulario">
-                        <label for="emailContato">E-mail</label>
-                        <input id="emailContato" name="email" type="email" placeholder="seuemail@exemplo.com" required>
-                        <small class="mensagemErro" data-erro="email"></small>
-                    </div>
-
-                    <div class="campoFormulario">
-                        <label for="mensagemContato">Mensagem</label>
-                        <textarea id="mensagemContato" name="mensagem" rows="5" placeholder="Escreva sua mensagem aqui..." required></textarea>
-                        <small class="mensagemErro" data-erro="mensagem"></small>
-                    </div>
-
-                    <button class="botaoEnviarFormulario" type="submit">Enviar mensagem</button>
-                    <p class="mensagemSucesso" id="mensagemSucesso" aria-live="polite"></p>
-                </form>
+                <ul>
+                    <li>
+                        E-mail: Gmailfalso@123
+                        <br>
+                        Número: xxxx-xxxx
+                        <br>
+                        Endereço: xxxx
+                        <br>
+                        Nome: Daniel Batista
+                        <br>
+                        Idade: 15 Anos
+                    </li>
+                </ul>
             </div>
 
             <div class="conteudoPainel" data-painel-conteudo="opcoes">
                 <p class="tagPainel">SEÇÃO</p>
                 <h1>Voltar</h1>
-                <button class="botaoVoltarInicio" type="button" onclick="window.location.href='index.html'">Voltar para a página inicial</button>
+                <p>Quer retornar à página inicial?</p>
+                <button class="botaoVoltarInicio" type="button" data-voltar-home>Voltar</button>
             </div>
         </div>
     </div>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opções | Ecos do Abismo</title>
+    <link rel="stylesheet" href="opcoes.css">
+</head>
+<body>
+    <main class="paginaOpcoes">
+        <div class="painelOpcoes">
+            <header class="cabecalhoOpcoes">
+                <div>
+                    <p class="tagOpcoes">Configurações</p>
+                    <h1>Opções</h1>
+                </div>
+                <button class="botaoVoltar" type="button" data-voltar-home>Voltar</button>
+            </header>
+
+            <section class="grupoOpcao">
+                <h2>Visual</h2>
+
+                <div class="linhaOpcao">
+                    <span>Tema</span>
+                    <button class="botaoToggle" type="button" data-theme-toggle aria-pressed="false">Tema escuro</button>
+                </div>
+
+                <label class="linhaOpcao" for="altoContraste">
+                    <span>Alto contraste</span>
+                    <input id="altoContraste" type="checkbox" data-option="alto-contraste">
+                </label>
+
+                <label class="linhaOpcao" for="reduzirAnimacoes">
+                    <span>Reduzir animações</span>
+                    <input id="reduzirAnimacoes" type="checkbox" data-option="reduzir-animacoes">
+                </label>
+            </section>
+
+            <section class="grupoOpcao">
+                <h2>Experiência</h2>
+
+                <label class="linhaOpcao linhaSlider" for="tamanhoTexto">
+                    <span>Tamanho da fonte</span>
+                    <div class="campoSlider">
+                        <input id="tamanhoTexto" type="range" min="14" max="22" step="1" value="16" data-option="font-size">
+                        <output for="tamanhoTexto" data-output="font-size">16px</output>
+                    </div>
+                </label>
+
+                <label class="linhaOpcao linhaSlider" for="volumeSom">
+                    <span>Volume</span>
+                    <div class="campoSlider">
+                        <input id="volumeSom" type="range" min="0" max="100" step="5" value="70" data-option="volume">
+                        <output for="volumeSom" data-output="volume">70%</output>
+                    </div>
+                </label>
+            </section>
+
+            <section class="grupoOpcao">
+                <h2>Atalhos</h2>
+
+                <div class="linhaOpcao linhaLista">
+                    <span>Voltar para a página inicial</span>
+                    <button class="botaoSecundario" type="button" data-voltar-home>Ir para início</button>
+                </div>
+            </section>
+
+            <div class="acoesOpcoes">
+                <button class="botaoReset" type="button" data-reset>Restaurar padrões</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="opcoes.js"></script>
+</body>
+</html>

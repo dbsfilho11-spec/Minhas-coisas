@@ -1,16 +1,18 @@
-const elementoSaudacao = document.getElementById('saudacao');
-const elementoAno = document.getElementById('anoAtual');
-const mensagem = document.querySelector('.mensagemMenu');
-const botoesMenu = [...document.querySelectorAll('.itemMenu')];
+var elementoSaudacao = document.getElementById('saudacao');
+var elementoAno = document.getElementById('anoAtual');
+var mensagem = document.querySelector('.mensagemMenu');
+var botoesMenu = document.querySelectorAll('.itemMenu');
 
-const modalConquistas = document.getElementById('modalConquistas');
-const botaoFecharConquistas = document.querySelector('.fecharConquistas');
+var modalConquistas = document.getElementById('modalConquistas');
+var botaoFecharConquistas = document.querySelector('.fecharConquistas');
 
 function atualizarSaudacao() {
-    if (!elementoSaudacao) return;
+    if (!elementoSaudacao) {
+        return;
+    }
 
-    const horaAtual = new Date().getHours();
-    let textoSaudacao = 'Boa noite';
+    var horaAtual = new Date().getHours();
+    var textoSaudacao = 'Boa noite';
 
     if (horaAtual >= 5 && horaAtual < 12) {
         textoSaudacao = 'Bom dia';
@@ -18,7 +20,7 @@ function atualizarSaudacao() {
         textoSaudacao = 'Boa tarde';
     }
 
-    elementoSaudacao.textContent = `${textoSaudacao}, aventureiro.`;
+    elementoSaudacao.textContent = textoSaudacao + ', aventureiro.';
 }
 
 function atualizarAno() {
@@ -30,42 +32,69 @@ function atualizarAno() {
 atualizarSaudacao();
 atualizarAno();
 
-const mensagensMenu = {
-    iniciar: 'A jornada começa. O abismo está esperando…',
-    opcoes: 'Aqui você pode colocar suas informações, ajustes e preferências.',
-    conquistas: 'Suas conquistas e marcos aparecerão aqui.'
-};
-
 function abrirModalConquistas() {
-    if (!modalConquistas) return;
+    if (!modalConquistas) {
+        return;
+    }
+
     modalConquistas.classList.add('visivel');
     modalConquistas.setAttribute('aria-hidden', 'false');
 }
 
 function fecharModalConquistas() {
-    if (!modalConquistas) return;
+    if (!modalConquistas) {
+        return;
+    }
+
     modalConquistas.classList.remove('visivel');
     modalConquistas.setAttribute('aria-hidden', 'true');
 }
 
 function selecionarItemMenu(botao) {
-    botoesMenu.forEach((item) => item.classList.toggle('selecionado', item === botao));
+    for (var i = 0; i < botoesMenu.length; i++) {
+        var item = botoesMenu[i];
+        if (item === botao) {
+            item.classList.add('selecionado');
+        } else {
+            item.classList.remove('selecionado');
+        }
+    }
 
-    const acao = botao.dataset.acao;
+    var acao = botao.dataset.acao;
+
     if (mensagem) {
-        mensagem.textContent = mensagensMenu[acao] || 'Selecione uma opção.';
+        if (acao === 'iniciar') {
+            mensagem.textContent = 'A jornada começa. O abismo está esperando…';
+        } else if (acao === 'opcoes') {
+            mensagem.textContent = 'Aqui você pode colocar suas informações, ajustes e preferências.';
+        } else if (acao === 'conquistas') {
+            mensagem.textContent = 'Suas conquistas e marcos aparecerão aqui.';
+        } else {
+            mensagem.textContent = 'Selecione uma opção.';
+        }
     }
 
     if (acao === 'iniciar') {
         fecharModalConquistas();
-        const telaInicial = document.querySelector('.telaInicial');
+
+        var telaInicial = document.querySelector('.telaInicial');
         if (telaInicial) {
             telaInicial.classList.add('inicio');
-            window.setTimeout(() => telaInicial.classList.remove('inicio'), 900);
-            window.setTimeout(() => {
+
+            window.setTimeout(function() {
+                telaInicial.classList.remove('inicio');
+            }, 900);
+
+            window.setTimeout(function() {
                 window.location.href = 'Pag2.html#areaJogo';
             }, 500);
         }
+
+        return;
+    }
+
+    if (acao === 'opcoes') {
+        window.location.href = 'opcoes.html';
         return;
     }
 
@@ -74,41 +103,77 @@ function selecionarItemMenu(botao) {
     }
 }
 
-botoesMenu.forEach((botao) => {
-    botao.addEventListener('click', () => selecionarItemMenu(botao));
-});
+for (var i = 0; i < botoesMenu.length; i++) {
+    botoesMenu[i].addEventListener('click', function() {
+        selecionarItemMenu(this);
+    });
+}
 
 if (botaoFecharConquistas) {
     botaoFecharConquistas.addEventListener('click', fecharModalConquistas);
 }
 
 if (modalConquistas) {
-    modalConquistas.addEventListener('click', (evento) => {
+    modalConquistas.addEventListener('click', function(evento) {
         if (evento.target === modalConquistas) {
             fecharModalConquistas();
         }
     });
 }
 
-document.addEventListener('keydown', (evento) => {
+document.addEventListener('keydown', function(evento) {
     if (evento.key === 'Escape' && modalConquistas && modalConquistas.classList.contains('visivel')) {
         fecharModalConquistas();
         return;
     }
 
-    if (evento.key === 'Enter' && !botoesMenu.includes(document.activeElement)) {
-        evento.preventDefault();
-        botoesMenu.find((botao) => botao.classList.contains('selecionado'))?.click();
+    if (evento.key === 'Enter') {
+        var botaoSelecionado = document.querySelector('.itemMenu.selecionado');
+
+        if (!botaoSelecionado && document.activeElement && document.activeElement.classList && document.activeElement.classList.contains('itemMenu') === false) {
+            evento.preventDefault();
+
+            var primeiroBotao = document.querySelector('.itemMenu');
+            if (primeiroBotao) {
+                primeiroBotao.click();
+            }
+            return;
+        }
+
+        if (!botaoSelecionado) {
+            return;
+        }
+
+        if (document.activeElement !== botaoSelecionado) {
+            evento.preventDefault();
+            botaoSelecionado.click();
+        }
         return;
     }
 
-    if (evento.key !== 'ArrowDown' && evento.key !== 'ArrowUp') return;
+    if (evento.key !== 'ArrowDown' && evento.key !== 'ArrowUp') {
+        return;
+    }
 
     evento.preventDefault();
-    const indiceAtual = botoesMenu.indexOf(document.activeElement);
-    const direcao = evento.key === 'ArrowDown' ? 1 : -1;
-    const proximo = (indiceAtual + direcao + botoesMenu.length) % botoesMenu.length;
 
-    botoesMenu[proximo].focus();
-    selecionarItemMenu(botoesMenu[proximo]);
+    var botoesAtivos = document.querySelectorAll('.itemMenu');
+    var indiceAtual = -1;
+
+    for (var i = 0; i < botoesAtivos.length; i++) {
+        if (document.activeElement === botoesAtivos[i]) {
+            indiceAtual = i;
+            break;
+        }
+    }
+
+    var direcao = evento.key === 'ArrowDown' ? 1 : -1;
+    var proximo = (indiceAtual + direcao + botoesAtivos.length) % botoesAtivos.length;
+
+    if (indiceAtual === -1) {
+        proximo = 0;
+    }
+
+    botoesAtivos[proximo].focus();
+    selecionarItemMenu(botoesAtivos[proximo]);
 });
